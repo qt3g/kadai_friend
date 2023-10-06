@@ -11,8 +11,8 @@
 #define ID "18A5999"
 #define NAME "工大次郎"
 */
-#define ID      "122I066"
-#define NAME    "小島崇彰"
+#define ID      "99Z9999"
+#define NAME    "工大三郎"
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
@@ -267,7 +267,7 @@ sval_1 = 3.1408904000 (543)
 sval_2 = 0.7853668675 (287)
 sval_s = 0.7853981633 (0)
 
-PAE03_rp: 122I066, 小島崇彰
+PAE03_rp: 99Z9999, 工大三郎
 
 */
 
