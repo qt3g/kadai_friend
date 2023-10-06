@@ -88,7 +88,7 @@ double urnd(void)
 }
 
 /*---------------------------------------------------------------
-単純モンテカルロ法により定積分の値を求める
+単純モンテカルロ法により定積分の値を求める（講義資料9頁）
 */
 double def_integral1(double(*f)(double), double a, double b, double T)
 {
@@ -109,10 +109,10 @@ double def_integral1(double(*f)(double), double a, double b, double T)
     for (double i = 1; i <= T; i += 1){
         x = a + urnd() * (b - a);
         y = urnd()*ymax;
-        if (/*??*/) S += 1;
+        if (/*??*/) S += 1;// S:X^2+y~2<=1を満たす点の数をSとする
     }
 
-    return /*??*/; 
+    return /*??*/; // 計算の最終的な答え
 }
 
 /*---------------------------------------------------------------
@@ -125,7 +125,9 @@ double def_integral2(double(*f)(double), double a, double b, double T)
 
     for (double i = 1; i <= T; i += 1){
         /*?? xに区間[a, b]の乱数の値を代入 */
+     // 浮動小数点数型で乱数を出力し、xに代入するプログラム(ChatGPTを使ってみよう)
         /*?? sumにf(x)の値を加算 */
+     // 上記の指示通り
     }
     /*!!*/ // printf("%lf\n", sum);  /* 提出時にはコメントにしておくこと． */
 
