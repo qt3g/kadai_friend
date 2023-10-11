@@ -8,9 +8,9 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
 
-#define EX04_2  /* _の後ろの数字を変えれば対応した関数を使える */
-                /* 現状では，関数ex04_02を使う．*/
-                /* #define EX04_3に変更すれば，関数ex04_03を使う．*/
+#define EX04_3  /* _の後ろの数字を変えれば対応した関数を使える */
+/* 現状では，関数ex04_02を使う．*/
+/* #define EX04_3に変更すれば，関数ex04_03を使う．*/
 
 //-----------------------------------------------------------
 #define LINE_SIZE 80    // グラフデータファイルの1行の最大文字数
@@ -26,7 +26,7 @@ int AM[MAX_NODE][MAX_NODE];     // 隣接行列
 int read_graph_2()
 {
     char    in_file_name[80];
-    FILE    *fp;
+    FILE* fp;
     int     num_node;
     char    node_name[MAX_NODE];
     int     cc;
@@ -63,7 +63,7 @@ int read_graph_2()
         char    n1, n2;
         int     w;
 
-        cc = fscanf(fp, /*??*/ );   // ヒント：下のprintfと同じ書式
+        cc = fscanf(fp, "%c %c %d");   // ヒント：下のprintfと同じ書式
         if (cc == EOF) {  // ファイルの終了
             return OK;
         }
@@ -96,9 +96,9 @@ int v2n(char v, char node_name[], int num_node)
 {
     int     i;
 
-    for( i=0; /*??ループ条件*/ ; i+=1) {
-        if (node_name[i] == /*??*/) {    /* node_nameにvがあればその番号を戻り値とする */
-            return /*??*/;
+    for (i = 0; i < num_node; i += 1) {
+        if (node_name[i] == v) {    /* node_nameにvがあればその番号を戻り値とする */
+            return i;
         }
     }
 
@@ -109,7 +109,7 @@ int v2n(char v, char node_name[], int num_node)
 int read_graph_3()
 {
     char    in_file_name[80];
-    FILE    *fp;
+    FILE* fp;
     int     num_node;
     char    node_name[MAX_NODE];
     int     cc;
@@ -158,21 +158,21 @@ int read_graph_3()
         if (cc == EOF) {
             break;
         }
-        
+
         // ノードの記号（文字）を番号（数値）に変換する
         n1 = v2n(v1, node_name, num_node);
         n2 = v2n(v2, node_name, num_node);
         // printf("%d %d %d\n", n1, n2, w);/*!!*/
 
         // 隣接行列に値を設定する．
-        AM[/*??*/][/*??*/] = w;
-        AM[/*??*/][/*??*/] = w;
+        AM[n1][n1] = w;
+        AM[n2][n2] = w;
     }
 
     // 隣接行列を表示する
     for (int i = 0; i < num_node; i += 1) {
         for (int j = 0; j < num_node; j += 1) {
-            printf("%d ", AM[i][j] );
+            printf("%d ", AM[i][j]);
         }
 
         printf("\n");
@@ -212,9 +212,22 @@ int main(void)
 /*実行結果を貼り付ける
 
 演習4(2)
-
+read_graph_2
+input file name = data.txt
+number of nodes = 6
+node name: a b c d e f
 
 演習4(3)
-
+read_graph_3
+input file name = data.txt
+number of nodes = 6
+node name
+a b c d e f
+4 0 0 0 0 0
+0 3 0 0 0 0
+0 0 1 0 0 0
+0 0 0 1 0 0
+0 0 0 0 2 0
+0 0 0 0 0 2
 
 */
