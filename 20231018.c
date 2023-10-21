@@ -48,7 +48,7 @@ int read_matrix(const char* fn)
     /* ファイルから読み取った値で，weightを初期化する */
     for (i = 0; i < MAX_SIZE; i += 1) {
         for (j = 0; j < MAX_SIZE; j += 1) {
-            fscanf(fp,"%d", &weight[i][j]);
+            fscanf(fp,"%d", &c);
             weight[i][j] = c;
         }
     }
@@ -74,7 +74,10 @@ int main()
 
     /* ??最小全域木の隣接行列（sptree）の全要素を0で初期化する */
 
-
+    for(i=0;i<MAX_SIZE;i++){
+        for(j=0;j<MAX_SIZE;j++)
+            sptree[i][j]=0;
+    }
 
 
 
