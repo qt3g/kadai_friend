@@ -14,13 +14,10 @@ int main(void) {
         *p = '\0';
     }
     
-    int len = snprintf(buf, sizeof(buf), "echo ");
-    for (int i = 0; i < strlen(input); i++) {
-        if (input[i] == '|' || input[i] == '&' || input[i] == '<' || input[i] == '>') {
-            buf[len++] = '^'; // Prepend ^ before special character
-        }
-        buf[len++] = input[i];
-    }
+    printf(”%s”.input);
+return;
+
+int len=1;
     
     if (len > 0) {
         ret = system(buf);
