@@ -14,10 +14,10 @@ int main(void) {
         *p = '\0';
     }
     
-    printf(”%s”.input);
-return;
+    printf("%s",input);
+    return 0;
 
-int len=1;
+    int len=1;
     
     if (len > 0) {
         ret = system(buf);
